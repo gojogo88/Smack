@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable  //so we can see it in storyboard
 class GradientView: UIView {
 
-    //s@IBInspectable o we can change dynamically in storyboard
+    //s@IBInspectable so we can change dynamically in storyboard attribute inspector
     @IBInspectable var topColor: UIColor = #colorLiteral(red: 0.2901960784, green: 0.3019607843, blue: 0.8470588235, alpha: 1) {
         didSet {
             self.setNeedsLayout()
