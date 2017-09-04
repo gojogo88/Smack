@@ -30,9 +30,15 @@ class CreateAccountVC: UIViewController {
         guard let email = emailTxt.text , emailTxt.text != "" else { return }
         guard  let pass = passwordTxt.text , passwordTxt.text != "" else { return }
         
-        AuthService.instance.registerUser(email: email, password: pass) { (success) in
+        AuthService.instance.registerUser(email: email, password: pass)
+        { (success) in
             if success {
-                print("Registered User!")
+                AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
+                    if success {
+                        print("logged in user!", AuthService.instance.authToken)
+                    }
+                })
+                //print("user created")
             }
         }
     }
@@ -40,6 +46,8 @@ class CreateAccountVC: UIViewController {
     @IBAction func chooseAvatarPressed(_ sender: Any) {
     }
     
-    @IBOutlet weak var pickBGColorPressed: UIButton!
+    @IBAction func pickBGColorPressed(_ sender: Any) {
+    }
+    
     
 }

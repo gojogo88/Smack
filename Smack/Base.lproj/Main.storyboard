@@ -430,6 +430,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAcctBtnPressed:" destination="e8A-bT-SOx" eventType="touchUpInside" id="fNr-dq-Zg0"/>
+                                    <action selector="pickBGColorPressed:" destination="oeb-JF-Ldm" eventType="touchUpInside" id="rpI-gg-HLL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDC-Ei-6Lx">
@@ -470,7 +471,6 @@
                     <connections>
                         <outlet property="emailTxt" destination="JXN-s4-NSd" id="o9T-Sf-ctU"/>
                         <outlet property="passwordTxt" destination="i0P-WD-eAW" id="aWD-1x-mbr"/>
-                        <outlet property="pickBGColorPressed" destination="PsT-3L-fbQ" id="yhY-tn-5nz"/>
                         <outlet property="userImg" destination="clS-96-nWA" id="kl7-wZ-voy"/>
                         <outlet property="userNameTxt" destination="Uje-ZA-UC1" id="RS0-vD-T2i"/>
                         <segue destination="DZA-xY-d9x" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="uXC-8l-SGw"/>
