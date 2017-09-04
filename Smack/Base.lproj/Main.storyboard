@@ -112,8 +112,8 @@
                                 <rect key="frame" x="281" y="89.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gv-XP-4Ce">
-                                <rect key="frame" x="115" y="591" width="45" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gv-XP-4Ce">
+                                <rect key="frame" x="115" y="591" width="160" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -133,7 +133,7 @@
                                 <rect key="frame" x="0.0" y="131.5" width="375" height="420.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lbZ-nm-CNf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelCell" id="lbZ-nm-CNf">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lbZ-nm-CNf" id="Z4x-aX-PVu">
@@ -161,6 +161,7 @@
                         <constraints>
                             <constraint firstItem="gMQ-yn-kAl" firstAttribute="top" secondItem="ZDC-BK-8p6" secondAttribute="bottom" constant="20" id="15Q-bw-zWA"/>
                             <constraint firstItem="9ZE-Nl-IC4" firstAttribute="trailing" secondItem="wwo-PR-ACf" secondAttribute="trailing" constant="72" id="7Pi-pN-4vk"/>
+                            <constraint firstItem="9ZE-Nl-IC4" firstAttribute="trailing" secondItem="2Gv-XP-4Ce" secondAttribute="trailing" constant="100" id="8UH-hR-2ia"/>
                             <constraint firstItem="nnO-kx-EfW" firstAttribute="top" secondItem="jr0-kg-oO1" secondAttribute="bottom" constant="20" id="990-5K-uIV"/>
                             <constraint firstItem="gMQ-yn-kAl" firstAttribute="leading" secondItem="9ZE-Nl-IC4" secondAttribute="leading" constant="20" id="HHa-af-a4a"/>
                             <constraint firstItem="2Gv-XP-4Ce" firstAttribute="leading" secondItem="nnO-kx-EfW" secondAttribute="trailing" constant="20" id="TQZ-h6-qqC"/>
