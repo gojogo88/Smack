@@ -24,7 +24,7 @@ class ProfileVC: UIViewController {
     }
 
     @IBAction func closeModalPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 
