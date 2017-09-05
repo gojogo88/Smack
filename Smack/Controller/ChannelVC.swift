@@ -25,6 +25,7 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         
         SocketService.instance.getChannel { (success) in
             if success {
@@ -62,6 +63,10 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         setupUserInfo()
     }
     
+    @objc func channelsLoaded(_ notif: Notification){
+        tableView.reloadData()
+    }
+    
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
@@ -71,12 +76,13 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             loginBtn.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.clear
+            tableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell {
-            let channel = MessgeService.instance.channels[indexPath.row]
+            let channel = MessageService.instance.channels[indexPath.row]
             cell.configureCell(channel: channel)
             return cell
         } else {
@@ -89,6 +95,15 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MessgeService.instance.channels.count
+        return MessageService.instance.channels.count
+    }
+    
+    //select a channel, save it to the messageservice selectedchannel,notify the chatvc that we have selected a channel then close the menu
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
+        
+        self.revealViewController().revealToggle(animated: true)
     }
 }
