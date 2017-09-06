@@ -53,7 +53,7 @@ class SocketService: NSObject {
     
     
     //this func listens for a new message at the server and if we get it, we get a dataArray which we have to parse through
-    func getChatMessage(completion: @escaping CompletionHandler) {
+    func getChatMessage(completion: @escaping (_ newMessage: Message) -> Void) {
         socket.on("messageCreated") { (dataArray, ack) in
             guard let msgBody = dataArray[0] as? String else { return }
             guard let channelId = dataArray[2] as? String else { return }
@@ -63,14 +63,9 @@ class SocketService: NSObject {
             guard let id = dataArray[6] as? String else { return }
             guard let timeStamp = dataArray[7] as? String else { return }
             
-            //check if the incoming message is part of the channel we chose
-            if channelId == MessageService.instance.selectedChannel?.channelID && AuthService.instance.isLoggedIn {
-                let newMessage = Message(message: msgBody, username: userName, channelID: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
-                MessageService.instance.messages.append(newMessage)
-                completion(true)
-            } else {
-                completion(false)
-            }
+            let newMessage = Message(message: msgBody, username: userName, channelID: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+            
+            completion(newMessage)
         }
     }
     
