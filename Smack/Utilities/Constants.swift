@@ -18,6 +18,7 @@ let URL_USER_ADD = "\(BASE_URL)user/add"
 let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 let URL_GET_CHANNELS = "\(BASE_URL)channel/"
 let URL_GET_MESSAGES = "\(BASE_URL)message/byChannel/"
+let URL_EDIT_USERNAME = "\(BASE_URL)user/"
 
 //Colors
 let smackPurplePlaceHolder = #colorLiteral(red: 0.2588235294, green: 0.3294117647, blue: 0.7254901961, alpha: 0.5)
@@ -32,12 +33,14 @@ let TO_LOGIN = "toLogin"
 let TO_CREATE_ACCOUNT = "toCreateAccount"
 let UNWIND = "unwindToChannel"
 let TO_AVATAR_PICKER = "toAvatarPicker"
+let TO_EDIT_USERNAME = "toEditUserName"
 
 
 //User Defaults
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let USER_ID = "userID"
 
 //Headers
 let HEADER = [

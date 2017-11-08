@@ -34,6 +34,12 @@ class ProfileVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func editUserName(_ sender: Any) {
+        let editProfile = EditProfileVC()
+        editProfile.modalPresentationStyle = .currentContext
+        present(editProfile, animated: true, completion: nil)
+    }
+    
     func setupView() {
         userName.text = UserDataService.instance.name
         userEmail.text = UserDataService.instance.email

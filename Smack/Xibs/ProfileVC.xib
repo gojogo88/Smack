@@ -10,6 +10,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
             <string>Avenir-Medium</string>
         </array>
@@ -88,6 +89,16 @@
                                 <action selector="logoutPressed:" destination="-1" eventType="touchUpInside" id="r7g-jC-Sp6"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-qm-89p">
+                            <rect key="frame" x="121" y="280" width="92" height="32"/>
+                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                            <state key="normal" title="Edit Username">
+                                <color key="titleColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="editUserName:" destination="-1" eventType="touchUpInside" id="6Ta-Ym-56G"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -96,7 +107,9 @@
                         <constraint firstItem="MyX-bQ-ntf" firstAttribute="centerY" secondItem="PlK-8R-R2W" secondAttribute="centerY" constant="-20" id="Lww-JC-85H"/>
                         <constraint firstAttribute="trailing" secondItem="v2q-bW-OCb" secondAttribute="trailing" constant="8" id="PaY-3e-gvo"/>
                         <constraint firstItem="oTa-Xd-Rrh" firstAttribute="centerX" secondItem="PlK-8R-R2W" secondAttribute="centerX" id="TWm-zp-Ywm"/>
+                        <constraint firstItem="n3g-qm-89p" firstAttribute="centerX" secondItem="PlK-8R-R2W" secondAttribute="centerX" id="dXQ-E0-L2B"/>
                         <constraint firstItem="v2q-bW-OCb" firstAttribute="top" secondItem="PlK-8R-R2W" secondAttribute="top" constant="8" id="jiH-CQ-EcE"/>
+                        <constraint firstItem="n3g-qm-89p" firstAttribute="top" secondItem="MyX-bQ-ntf" secondAttribute="bottom" constant="8" id="n3Y-IE-9AL"/>
                         <constraint firstAttribute="bottom" secondItem="oTa-Xd-Rrh" secondAttribute="bottom" constant="8" id="tuo-4Z-H5A"/>
                     </constraints>
                 </view>

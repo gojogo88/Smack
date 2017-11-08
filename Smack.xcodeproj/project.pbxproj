@@ -22,6 +22,8 @@
 		6CB809CA1F5D6A54007F98EE /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB809C81F5D6A54007F98EE /* ProfileVC.swift */; };
 		6CB809CB1F5D6A54007F98EE /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CB809C91F5D6A54007F98EE /* ProfileVC.xib */; };
 		6CCE0F441F5EC6D0000240DD /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCE0F431F5EC6D0000240DD /* MessageCell.swift */; };
+		6CD358191F5F837D002C27CA /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD358171F5F837D002C27CA /* EditProfileVC.swift */; };
+		6CD3581A1F5F837D002C27CA /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CD358181F5F837D002C27CA /* EditProfileVC.xib */; };
 		6CD4017D1F5CCE5D0048DE4B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD4017C1F5CCE5D0048DE4B /* AuthService.swift */; };
 		6CD4017F1F5CD9890048DE4B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD4017E1F5CD9890048DE4B /* RoundedButton.swift */; };
 		6CD401811F5CF08C0048DE4B /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD401801F5CF08C0048DE4B /* UserDataService.swift */; };
@@ -57,6 +59,8 @@
 		6CB809C81F5D6A54007F98EE /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		6CB809C91F5D6A54007F98EE /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		6CCE0F431F5EC6D0000240DD /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		6CD358171F5F837D002C27CA /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		6CD358181F5F837D002C27CA /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		6CD4017C1F5CCE5D0048DE4B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		6CD4017E1F5CD9890048DE4B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		6CD401801F5CF08C0048DE4B /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				6CD401821F5CFDCB0048DE4B /* AvatarPickerVC.swift */,
 				6CB809C81F5D6A54007F98EE /* ProfileVC.swift */,
 				6CE29D3A1F5E375300D2703D /* AddChannelVC.swift */,
+				6CD358171F5F837D002C27CA /* EditProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 		6CB809CC1F5D6A72007F98EE /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				6CD358181F5F837D002C27CA /* EditProfileVC.xib */,
 				6CE29D3B1F5E375300D2703D /* AddChannelVC.xib */,
 				6CB809C91F5D6A54007F98EE /* ProfileVC.xib */,
 			);
@@ -282,6 +288,7 @@
 			files = (
 				6CE29D3D1F5E375300D2703D /* AddChannelVC.xib in Resources */,
 				6CB809CB1F5D6A54007F98EE /* ProfileVC.xib in Resources */,
+				6CD3581A1F5F837D002C27CA /* EditProfileVC.xib in Resources */,
 				6C4B13DE1F57D59D008CFD5E /* LaunchScreen.storyboard in Resources */,
 				6C4B13DB1F57D59D008CFD5E /* Assets.xcassets in Resources */,
 				6C4B13D91F57D59D008CFD5E /* Main.storyboard in Resources */,
@@ -297,9 +304,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Smack/Pods-Smack-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -312,13 +328,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smack-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8999DF0CAF694CE683575D53 /* [CP] Copy Pods Resources */ = {
@@ -365,6 +384,7 @@
 				6C4B13D41F57D59D008CFD5E /* AppDelegate.swift in Sources */,
 				6CD401871F5D16220048DE4B /* CIrcleImage.swift in Sources */,
 				6C4B13F01F57E484008CFD5E /* SWRevealViewController.m in Sources */,
+				6CD358191F5F837D002C27CA /* EditProfileVC.swift in Sources */,
 				6C4B13F51F57F828008CFD5E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

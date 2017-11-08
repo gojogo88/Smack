@@ -44,6 +44,14 @@ class AuthService {
             defaults.set(newValue, forKey: USER_EMAIL)
         }
     }
+    var userId : String {
+        get {
+            return defaults.value(forKey: USER_ID) as! String
+        }
+        set {
+            defaults.set(newValue, forKey: USER_ID)
+        }
+    }
     
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
         
@@ -112,6 +120,25 @@ class AuthService {
         ]
         
         Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                self.setUserInfo(data: data)
+                
+                completion(true)
+                
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func editUserName(name: String, completion: @escaping CompletionHandler) {
+        
+        let body: [String: Any] = ["name": name]
+        
+        Alamofire.request("\(URL_USER_BY_EMAIL)\(userId)", method: .put, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
             if response.result.error == nil {
                 guard let data = response.data else { return }
